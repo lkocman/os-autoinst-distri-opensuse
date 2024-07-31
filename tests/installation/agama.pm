@@ -73,10 +73,10 @@ sub run {
     # Normally it's on the side
     wait_still_screen 5;
 	# takes you to bottom of the page, but you need to click on the page first
-    assert_and_click('agama-install-icon');
+    assert_and_click('agama-install-icon'); # WORKAROUND: not an install-button
 	send_key "ctrl-down";
 
-    assert_and_click('agama-ready-for-installation');
+    assert_and_click('agama-install-button');
     # confirmation dialog if we keep default partitioning layout
     assert_and_click('agama-confirm-installation');
 
