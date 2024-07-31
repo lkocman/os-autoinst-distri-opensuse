@@ -83,6 +83,18 @@ sub run {
     # online-only installation  it might take long based on connectivity
     # We're using wrong repo for testing
     # BUG tracker: https://github.com/openSUSE/agama/issues/1474
+	# copied from await_install.pm
+    my $timeout = 2400
+    while (1) {
+        die "timeout ($timeout) hit on during await_install" if $timeout <= 0;
+        my $ret = check_screen 'agama-install-in-progress', 30;
+        $timeout -= 30;
+        diag("left total await_install timeout: $timeout");
+        if (!$ret) {
+			# Handle any error dialogs that could happen
+			last;
+		}
+	}
 
     # installation done
     # TODO fetch agama logs after install see https://github.com/openSUSE/agama/issues/1447
