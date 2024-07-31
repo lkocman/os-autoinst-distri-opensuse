@@ -5,6 +5,9 @@
 
 # Summary: Installation of Leap or Tumblweed with Agama
 # https://github.com/openSUSE/agama/
+
+# Setting agama live media root password
+# https://github.com/openSUSE/agama/blob/master/doc/live_iso.md#the-access-password
 # Maintainer:  Maintainer: Lubos Kocmman <lubos.kocman@suse.com>,
 
 use strict;
@@ -42,6 +45,10 @@ sub run {
     send_key 'tab';
     send_key 'tab';
     send_key 'ret';
+
+	# It seems that in lower resolutions agama hides list of tabs
+	# so we have to click on the top button to display them
+    assert_and_click('agama-show-tabs');
 
     # default is just a minimal server style install
     if (check_var('DESKTOP', 'gnome')) {
