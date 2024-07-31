@@ -88,6 +88,7 @@ sub run {
     while (1) {
         die "timeout ($timeout) hit on during await_install" if $timeout <= 0;
         my $ret = check_screen 'agama-install-in-progress', 30;
+		sleep 30;
         $timeout -= 30;
         diag("left total await_install timeout: $timeout");
         if (!$ret) {
