@@ -60,6 +60,7 @@ sub run {
         assert_and_click('agama-change-software-selection');
         wait_still_screen 5;
         assert_and_click('agama-software-selection-gnome-desktop-wayland');
+        assert_and_click('agama-software-selection-close');
     }
 
     # TODO fetch agama logs before install (in case of dependency issues, or if further installation crashes)
