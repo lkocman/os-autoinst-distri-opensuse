@@ -48,13 +48,13 @@ sub run {
 
 	# It seems that in lower resolutions agama hides list of tabs
 	# so we have to click on the top button to display them
+    # Good thing is that tabs get hiden automatically again
+	# after you click one of the tabs
     assert_and_click('agama-show-tabs');
 
     # default is just a minimal server style install
     if (check_var('DESKTOP', 'gnome')) {
         assert_and_click('agama-software-tab');
-		# Hide the tabs again (their overlap with screen on lowres)
-		assert_and_click('agama-show-tabs');
 
         wait_still_screen 5;
         assert_and_click('agama-change-software-selection');
@@ -67,8 +67,6 @@ sub run {
 	# Show tabs again so we can click on overview
 	assert_and_click('agama-show-tabs');
     assert_and_click('agama-overview-tab');
-	# Hide the tabs again (their overlap with screen on lowres)
-	assert_and_click('agama-show-tabs');
 
     assert_and_click('agama-ready-for-installation');
     # confirmation dialog if we keep default partitioning layout
