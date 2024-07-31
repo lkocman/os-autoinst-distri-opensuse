@@ -19,7 +19,7 @@ sub run {
 
     assert_screen('agama-inst-welcome-product-list');
 
-    if (is_leap('=16')) {
+    if (is_leap('>=16.0')) {
         assert_and_click('agama-product-leap16');
         assert_and_click('agama-product-select');
     } else {    # Default to TW
