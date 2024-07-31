@@ -69,6 +69,11 @@ sub run {
 	assert_and_click('agama-show-tabs');
     assert_and_click('agama-overview-tab');
 
+	# The ready to install button is at the bottom of the page on lowres screen
+    # Normally it's on the side
+    wait_still_screen 5;
+	send_key "ctrl-down"; # takes you to bottom of the page
+
     assert_and_click('agama-ready-for-installation');
     # confirmation dialog if we keep default partitioning layout
     assert_and_click('agama-confirm-installation');
