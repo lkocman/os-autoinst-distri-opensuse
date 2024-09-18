@@ -173,6 +173,10 @@ sub run {
         diag("left total await_install timeout: $timeout");
         last if $ret;
         die "timeout ($timeout) hit during await_install" if $timeout <= 0;
+
+        # check if we are still installing to die early in case of any 
+        # failure dialogs 
+        assert_screen('agama-install-in-progress');
     }
 }
 
