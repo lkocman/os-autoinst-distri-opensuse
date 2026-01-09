@@ -30,13 +30,13 @@
 
 <pre><code>pre_run_hook()</code></pre>
 
-<p>This is one of the test module interfaces <code>&#39;pre_run_hook()&#39;</code>. It sets <code>&#39;$prev_console&#39;</code> before running test steps.</p>
+<p>This is one of the test module interfaces <code>&#39;pre_run_hook()&#39;</code>. It records which console is set - if any - at the start of the test module execution.</p>
 
 <h2 id="post_run_hook">post_run_hook</h2>
 
 <pre><code>post_run_hook()</code></pre>
 
-<p>This is one of the test module interfaces <code>&#39;post_run_hook()&#39;</code>. It restores/unlocks <code>&#39;$prev_console&#39;</code>, clear the console and ensure that it really got cleareafter.</p>
+<p>This is one of the test module interfaces <code>&#39;post_run_hook()&#39;</code>. It records which console is set at the end of the test module execution and collects SELinux alerts if tests runs with <b>VERSION</b> 16.0 or newer</p>
 
 <h2 id="post_fail_hook">post_fail_hook</h2>
 
@@ -50,9 +50,18 @@
 
 <p>This is one of the test module interfaces <code>&#39;test_flags()&#39;</code>.</p>
 
-<pre><code>- Specifies what should happen when test execution of the current test module is finished depending on the result.
-- Set C&lt;&#39;milestone=1&#39;&gt;: after this test succeeds, update the &#39;lastgood&#39; snapshot of the SUT
-- Set C&lt;&#39;fatal=1&#39;&gt;: when set to 1 the whole test suite is aborted if the test module fails. The overall state is set to failed.</code></pre>
+<ul>
+
+<li><p>Specify what should happen when test execution of the current test module is finished depending on the result.</p>
+
+</li>
+<li><p>Set <code>&#39;milestone=1&#39;</code>: after this test succeeds, update the &#39;lastgood&#39; snapshot of the SUT</p>
+
+</li>
+<li><p>Set <code>&#39;fatal=1&#39;</code>: when set to 1 the whole test suite is aborted if the test module fails. The overall state is set to failed.</p>
+
+</li>
+</ul>
 
 
 </body>
