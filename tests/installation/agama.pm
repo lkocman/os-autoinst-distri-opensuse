@@ -271,6 +271,7 @@ sub select_product {
 
 sub select_desktop_pattern {
     my $desktop = get_var('DESKTOP');
+    my $gnome = get_var('GNOME');
     send_key_until_needlematch("agama-software-selection-$desktop-desktop-wayland", 'down');
     assert_and_click("agama-software-selection-$desktop-desktop-wayland");
 }
